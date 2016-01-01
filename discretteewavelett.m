@@ -1,0 +1,18 @@
+clc;
+close all;
+clear all;
+a=imread('cameraman.tif');
+a=double(a);
+b=imread('text_1.png');
+d=size(a);
+[ll lh hl hh]=dwt2(a,'db1');
+[ll1 lh1 hl1 hh1]=dwt2(b,'db1');
+ll2=(ll+ll1)/2;
+lh2=(lh+lh1)/2;
+hl2=(hl+hl1)/2;
+hh2=(hh+hh1)/2;
+X = idwt2(ll2,'db1');
+X=double(X);
+z=a-X;
+max(max(abs(z)));
+imshow(z/255);
