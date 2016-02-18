@@ -22,6 +22,5 @@ for i=2:(r-1)
         end
     end
 end
-imshow(c,[]);
 end
 
